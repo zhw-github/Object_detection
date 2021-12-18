@@ -21,7 +21,7 @@ class ProposalCreator():
         n_train_pre_nms     = 12000,
         n_train_post_nms    = 600,
         n_test_pre_nms      = 3000,
-        n_test_post_nms     = 300,
+        n_test_post_nms     = 50,
         min_size            = 16
     
     ):

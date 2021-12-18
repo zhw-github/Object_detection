@@ -3,7 +3,7 @@ import warnings
 import torch
 from torch import nn
 from torchvision.ops import RoIPool
-from rpn import RegionProposalNetwork
+from nets.rpn import RegionProposalNetwork
 from nets.resnet50 import resnet50
 
 
