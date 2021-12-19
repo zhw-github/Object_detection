@@ -63,15 +63,23 @@ class FRCNN(object):
 
     # 初始化fasterRCNN
     def __init__(self, **kwargs):
+        # self.a = a的简便写法
         self.__dict__.update(self._defaults)
+        # 查看是否有其他的输入变量,items将初始化转成字典
+        print(kwargs.items())
         for name,value in kwargs.items():
+            # setattr设置属性值(self.name=value)
             setattr(self, name, value)
-        # 获得种类和先验框的数量
+        # 获得种类名称和种类数量
         self.class_names,self.num_classes = get_classes(self.classes_path)
+        print(self.num_classes)
 
         self.std = torch.Tensor([0.1,0.1,0.2,0.2]).repeat(self.num_classes+1)[None]
         if self.cuda:
             self.std = self.std.cuda()
+        """
+        DecodeBox
+        """
         
 
 

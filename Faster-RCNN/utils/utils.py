@@ -21,9 +21,14 @@ def resize_image(image, size):
     new_image   = image.resize((w, h), Image.BICUBIC)
     return new_image
 
-#---------------------------------------------------#
-#   获得类
-#---------------------------------------------------#
+"""
+    根据classes.txt获得种类名称和种类的数量
+    f.readlines:
+    ['aeroplane\n', 'bicycle\n', 'bird\n', 'boat\n', 'bottle\n', 'bus\n', 'car\n', 'cat\n', 'chair\n', 'cow\n', 'diningtable\n', 'dog\n', 'horse\n', 
+    'motorbike\n', 'person\n', 'pottedplant\n', 'sheep\n', 'sofa\n', 'train\n', 'tvmonitor']
+    c.strip()删除字符串的头尾信息
+
+"""
 def get_classes(classes_path):
     with open(classes_path, encoding='utf-8') as f:
         class_names = f.readlines()
