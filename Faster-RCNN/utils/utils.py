@@ -20,3 +20,41 @@ def resize_image(image, size):
     w, h        = size
     new_image   = image.resize((w, h), Image.BICUBIC)
     return new_image
+
+#---------------------------------------------------#
+#   获得类
+#---------------------------------------------------#
+def get_classes(classes_path):
+    with open(classes_path, encoding='utf-8') as f:
+        class_names = f.readlines()
+    class_names = [c.strip() for c in class_names]
+    return class_names, len(class_names)
+
+
+
+
+
+#---------------------------------------------------#
+#   计算resize后的图片的大小，resize后的图片短边为600
+#---------------------------------------------------#
+
+def get_new_img_size(height,width,img_min_side=600):
+    if width <= height:
+        f = float(img_min_side) / width
+        resized_height = int(f*height)
+        resized_width = int(img_min_side)
+    else:
+        f = float(img_min_side) / height
+        resized_width = int(f*width)
+        resized_height = int(img_min_side)
+    
+    return resized_height,resized_width
+
+
+def main():
+    resized_height,resized_width = get_new_img_size(1000, 800)
+    print(resized_height,resized_width)
+
+
+if __name__ == "__main__":
+    main()
