@@ -26,9 +26,9 @@ class Resnet50RoIHead(nn.Module):
         if x.is_cuda:
             roi_indices = roi_indices.cuda()
             rois = rois.cuda()
-        print('Base_layers: ', x.size())
-        print('roi_indices: ', roi_indices.size())
-        print('rois: ', rois.size())
+        # print('Base_layers: ', x.size())
+        # print('roi_indices: ', roi_indices.size())
+        # print('rois: ', rois.size())
         # 将ROI映射到特征图中，才能进行RoIPooling
         rois_feature_map = torch.zeros_like(rois)
         rois_feature_map[:, [0,2]] = rois[:, [0,2]] / img_size[1] * x.size()[3]

@@ -55,6 +55,10 @@ def get_new_img_size(height,width,img_min_side=600):
     
     return resized_height,resized_width
 
+def preprocess_input(image):
+    image /= 255.0
+    return image
+
 
 def main():
     resized_height,resized_width = get_new_img_size(1000, 800)
