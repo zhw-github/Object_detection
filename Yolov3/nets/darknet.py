@@ -57,7 +57,8 @@ class DarkNet(nn.Module):
         self.layer4 = self._make_layer([256, 512], layers[3])
         # 512,26,26 -> 1024,13,13
         self.layer5 = self._make_layer([512, 1024], layers[4])
-    
+
+        self.layers_out_filters = [64, 128, 256, 512, 1024]
         # 进行权值初始化
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -96,6 +97,9 @@ class DarkNet(nn.Module):
 
         return out3, out4, out5
 
+def darknet53():
+    model = DarkNet()
+    return model
 
 def main():
     t  = torch.randn([4,3,416,416])
